@@ -2,7 +2,7 @@
 # This file is the master for ROS handler
 # importing libararies
 import rospy
-import methods.py
+from methods.py import sender
 
 # initialize a variable to store the last sent value
 
