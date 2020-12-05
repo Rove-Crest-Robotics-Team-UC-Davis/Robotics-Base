@@ -1,7 +1,9 @@
 # import libraries.
 import rospy
 from std_msgs.msg import String
+import static_data
 # http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29
+ 
 class sender:
     pub = None
     def __init__(self, send_to):
@@ -17,7 +19,7 @@ class sender:
 class reader:
     # create object properties -- sender and reader
     pub = None
-    def __init__(self, get_from):
+    def __init__(self, get_from, reader_index):
         # create a listener to read messages from the given topic
         pub = rospy.Subscriber(get_from, String, callback=None)
 

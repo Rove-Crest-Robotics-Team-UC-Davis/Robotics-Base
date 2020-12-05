@@ -8,8 +8,8 @@ from methods import *
 # Create a ros publisher node 'reqd_pos' (that sends Strings)
 # queue size --> the number of messages that this topic must store as a backlog. 
 reqd_pos = sender('reqd_pos')
-curr_pos = reader('curr_pos')
-ik_in = reader('ik_in')
+curr_pos = reader('curr_pos', 0)
+ik_in = reader('ik_in', 1)
 
 # initialize a variable to store the last sent value
 last_sent = ik_in.get_next()
