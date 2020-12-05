@@ -7,17 +7,18 @@ from methods import *
 
 # Create a ros publisher node 'reqd_pos' (that sends Strings)
 # queue size --> the number of messages that this topic must store as a backlog. 
-reqd_pos = sender(reqd_pos, 'reqd_pos')
+reqd_pos = sender('reqd_pos')
 curr_pos = reader('curr_pos')
 ik_in = reader('ik_in')
-# rospy rate for syncing the ros handler with the I/O
-rate = rospy.Rate(10) # 10 hZ
 
 # initialize a variable to store the last sent value
 last_sent = ik_in.get_next()
 
 # initalize this program as a ros node.
 rospy.init_node('ROS_handler', anonymous=True)
+# rospy rate for syncing the ros handler with the I/O
+rate = rospy.Rate(10) # 10 hZ
+
 def run():
     while not rospy.is_shutdown():
         # Listen to IK's program's publishing node and store it in a local variable
