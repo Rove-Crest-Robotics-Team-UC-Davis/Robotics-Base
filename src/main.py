@@ -19,7 +19,7 @@ rospy.init_node('ROS_handler', anonymous=True)
 # rospy rate for syncing the ros handler with the I/O
 rate = rospy.Rate(10) # 10 hZ
 
-def run():
+def run(last_sent):
     while not rospy.is_shutdown():
         # Listen to IK's program's publishing node and store it in a local variable
         from_ik = ik_in.get_next()
@@ -38,6 +38,6 @@ def run():
 
 if __name__ == '__main__':
     try:
-        run()
+        run(last_sent)
     except rospy.ROSInterruptException:
-        print("ROS unreas")
+        print("ROS has been interrupted.")
