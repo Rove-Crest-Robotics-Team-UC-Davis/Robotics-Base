@@ -2,11 +2,14 @@
 # This file is the master for ROS handler
 # importing libararies
 import rospy
-from methods import handler
+from std_msgs.msg import String
+from methods import *
 
 # initialize a variable to store the last sent value
-
+last_sent = ""
 # Create a ros publisher node 'reqd_pos' (that sends Strings)
+# queue size --> the number of messages that this topic must store as a backlog. 
+pub_node = handler.__init__('reqd_pos', ['curr_pos', 'IK_in'])
 
 while True:
     # Listen to IK's program's publishing node and store it in a local variable

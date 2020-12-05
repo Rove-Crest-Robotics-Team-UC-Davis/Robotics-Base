@@ -1,6 +1,14 @@
 # import libraries.
 import rospy
 
+class sender:
+    def __init__(self, send_to):
+        # create a listener
+        pass
+    def send(self, message):
+        # send the given message to the topic given in the constructor
+        pass
+
 class handler:
     # create object properties -- sender and reader
 
@@ -12,9 +20,7 @@ class handler:
         # initialize both of the above
         pass
 
-    def send(self, message):
-        # send the given message to the topic given in the constructor
-        pass
+    
 
     def create_reader(self):
         # recieve data and add it to the array of commands from IK
