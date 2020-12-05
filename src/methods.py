@@ -19,10 +19,8 @@ class reader:
     pub = None
     def __init__(self, get_from):
         # create a listener to read messages from the given topic
+        pub = rospy.Subscriber(get_from, String, callback=None)
 
-        # initialize both of the above
-        pass
-
-    def get_next(self, index):
-        # return the 'index'th command from the aforementioned array.
-        pass
+    def get_next(self):
+        # return the next command from the aforementioned array.
+        return "SAMPLE STRING"
