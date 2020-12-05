@@ -7,9 +7,9 @@ from methods import *
 
 # Create a ros publisher node 'reqd_pos' (that sends Strings)
 # queue size --> the number of messages that this topic must store as a backlog. 
-reqd_pos = sender.__init__('reqd_pos')
-curr_pos = reader.__init__('curr_pos')
-ik_in = reader.__init__('ik_in')
+reqd_pos = sender(reqd_pos, 'reqd_pos')
+curr_pos = reader('curr_pos')
+ik_in = reader('ik_in')
 # rospy rate for syncing the ros handler with the I/O
 rate = rospy.Rate(10) # 10 hZ
 
