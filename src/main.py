@@ -10,6 +10,8 @@ from methods import *
 reqd_pos = sender.__init__('reqd_pos')
 curr_pos = reader.__init__('curr_pos')
 ik_in = reader.__init__('ik_in')
+# rospy rate for syncing the ros handler with the I/O
+rate = rospy.Rate(10) # 10 hZ
 
 # initialize a variable to store the last sent value
 last_sent = ik_in.get_next()
@@ -27,3 +29,5 @@ while not rospy.is_shutdown():
     reqd_pos.send(from_ik)
     # Update the last sent variable.
     last_sent = from_ik
+    # wait for syncing.
+    rate.sleep()
